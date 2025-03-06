@@ -1,0 +1,56 @@
+Notas
+*Instalar Git
+Si no tienes Git instalado, descárgalo e instálalo desde git-scm.com.
+*Habilitar manualmente el servicio SSH-Agent mediante PowerShell
+Get-Service ssh-agent | Set-Service -StartupType Automatic
+*Intenta iniciarlo manualmente con
+Start-Service ssh-agent
+*Verifica si el servicio está corriendo con
+Get-Service ssh-agent
+
+*Configurar tu nombre y correo	
+git config --global user.name "Tu Nombre"
+git config --global user.username "Nickname"
+git config --global user.email "tuemail@example.com"
+**En tu caso es
+git config --global user.name "Fabian Fernandez"
+git config --global user.username "whiskort626"
+git config --global user.email "fafca626@hotmail.com"
+*Verificar la configuración
+git config --list
+
+*Generar y agregar una clave SSH
+**Genera la clave
+ssh-keygen -t rsa -b 4096 -C "tuemail@example.com"
+***En tu caso
+ssh-keygen -t ed25519 -C "fafca626@hotmail.com"
+
+*Si el estado es Running, prueba agregar la clave SSH:
+ssh-add $env:USERPROFILE\.ssh\id_rsa
+ssh-add C:\Users\fafca\.ssh\id_ed25519
+
+1.En la esquina superior derecha de cualquier página en GitHub, haga clic en la fotografía de 
+	perfil y luego en  Configuración.
+2.En la sección "Acceso" de la barra lateral, haz clic en  Claves SSH y GPG.
+3.Haga clic en Nueva clave SSH o en Agregar clave SSH.
+4.En el campo "Title" (Título), agrega una etiqueta descriptiva para la clave nueva. Por ejemplo, 
+	si estás utilizando un portátil personal, puedes llamar a esta clave "Portátil personal".
+5.Selecciona el tipo de clave, ya sea de autenticación o de firma. Para más información sobre 
+	la firma de confirmación, consulta Acerca de la verificación de firma de confirmación.
+6.En el campo "Clave", pega tu clave pública.
+7.Haga clic en Agregar clave SSH.
+
+*Esto copiará el contenido de la clave pública al portapapeles
+clip < C:\Users\fafca\.ssh\id_ed25519
+Get-Content C:\Users\fafca\.ssh\id_ed25519.pub | Set-Clipboard
+
+*Inicializar un repositorio
+git init
+*Vincular la direccion con el proyecto Git 
+git remote add origin https://github.com/whiskort626/GitCourses.git
+*Ver el estado del repositorio: Para ver los archivos modificados, agregados o eliminados
+git status
+*Agregar cambios al área de preparación
+git add nombre_del_archivo
+*Para agregar todos los archivos modificados
+git add .
