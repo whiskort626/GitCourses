@@ -54,3 +54,46 @@ git status
 git add nombre_del_archivo
 *Para agregar todos los archivos modificados
 git add .
+*Hacer un commit
+git commit -m "Mensaje descriptivo del commit"
+
+*Clonar un repositorio
+git clone https://github.com/usuario/repositorio.git
+*Si usas SSH
+git clone git@github.com:usuario/repositorio.git
+
+*Subir cambios por primera vez me sirvio con esta linea
+git push --set-upstream origin master
+*Subir cambios a GitHub (push): Para subir los cambios a tu repositorio remoto
+git push origin nombre_de_la_rama
+*Por ejemplo, para subir a la rama main: 
+git push origin main
+
+*Actualizar tu repositorio local (pull): Para descargar los últimos cambios del repositorio remoto
+git pull origin nombre_de_la_rama
+
+*Crear una nueva rama
+git checkout -b nombre_de_la_rama
+*Cambiar de rama 	
+git checkout nombre_de_la_rama
+*Fusionar ramas
+git merge nombre_de_la_rama
+*Ver el historial de commits
+git log
+*Deshacer cambios: Para deshacer cambios en un archivo antes de hacer commit
+git checkout -- nombre_del_archivo
+**Para deshacer el último commit (sin perder los cambios)
+git reset --soft HEAD~1
+
+*Eliminar una rama: Para eliminar una rama local
+git branch -d nombre_de_la_rama
+**Para eliminar una rama remota
+git push origin --delete nombre_de_la_rama
+
+*Ignorar archivos: Para ignorar archivos o carpetas, edita el archivo .gitignore en la raíz 
+	de tu proyecto
+# Ejemplo de .gitignore
+node_modules/
+.env
+*.log
+
